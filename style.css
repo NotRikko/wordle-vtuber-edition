@@ -1,0 +1,56 @@
+body {
+    font-family: sans-serif;
+    background-color: rgb(26, 25, 25);
+    color: white;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+#game-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    row-gap: 10px;
+    column-gap: 10px;
+    padding: 20px 40px;
+}
+
+
+.box {
+    align-self: center;
+    font-weight: 800;
+    border: 1.5px rgb(194, 194, 194) solid;
+    border-radius: 8px;
+    padding: 40px 40px;
+}
+
+
+
+.input {
+    align-self: center;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    max-width: 30px;
+    max-height: 30px;
+    margin: 0;
+    padding: 25px;
+    border: 1.5px white solid;
+    text-align: center;
+    border-radius: 6px;
+    pointer-events: none;
+    display: none;
+}
+
