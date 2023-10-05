@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Vtuber Wordle</title>
+    <script src="java.js" defer></script>
 </head>
 <body>
     <div class="main-container">
         <h1>Vordle</h1>
-        <div id="game-container">
+        <div class="main-container2">
+            <input id="answer" type="text">
+            <button id="play" onclick="reveal()">Enter</button>
+            <div id="game-container" style="visibility: hidden">
                 <div class="box">
                     <input type="text" class="input" maxlength="1"/>
                 </div>
