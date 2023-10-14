@@ -98,8 +98,8 @@ h1 {
         top: 0; right: 0;
         height: 100%;
         z-index: 1;
-        background-color: rgb(166, 167, 180);
-        animation: showText 0.8s linear;
+        background-color: rgb(255, 255, 255);
+        animation: showText 1s linear;
     }
 
 }
