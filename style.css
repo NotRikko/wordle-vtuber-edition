@@ -83,10 +83,47 @@ h1 {
 }
 
 .hintsSection {
+    position:relative;
+    overflow: hidden;
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation: animateText .7s forwards;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0;
+        height: 100%;
+        z-index: 1;
+        background-color: rgb(166, 167, 180);
+        animation: showText 0.8s linear;
+    }
+
+}
+@keyframes animateText {
+    from {
+        opacity: 0;
+    }
+    to  {
+        opacity: 1;
+    }
+}
+@keyframes showText {
+    0% {
+        width: 0;
+        left: 0;
+    }
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
 }
 
 .box {
@@ -122,6 +159,7 @@ h1 {
     align-self: center;
     background-color: white;
     padding: 10px 5px;
-    width: 60px;
+    width: 70px;
     color: rgb(255, 255, 255);
 }
+
