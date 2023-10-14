@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
-    background-color: rgb(26, 25, 25);
-    color: white;
+    background-color: rgb(27, 27, 27);
+    color: rgb(255, 255, 255);
 }
 
 .main-container {
@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5vw;
+    gap: 1vw;
     margin-top: 2vw;
 }
 
@@ -17,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 4vw;
+    gap: 2vw;
 }
 
 h1 {
@@ -28,13 +28,12 @@ h1 {
 #inputField {
     display: flex;
     flex-direction: column;
-    gap: 8vw;
 }
 #answer {
     align-self: center;
-    width: 350px;
-    height: 80px;
-    font-size: 40px;
+    width: 320px;
+    height: 70px;
+    font-size: 35px;
     text-align: center;
     color: white;
     border: solid white 2px;
@@ -59,10 +58,23 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-bottom: 5vw;
 }
 
 .vtuber-image {
-    width: 90px;
+    width: 80px;
+}
+
+#images {
+    margin-right: 20px;
+}
+
+#results {
+    margin-top: -20px;
+}
+.victoryPic {
+    width: 250px;
+    margin-bottom: 80px;
 }
 
 #images {
@@ -109,7 +121,7 @@ h1 {
 .hint {
     align-self: center;
     background-color: white;
-    padding: 10px 0px;
-    width: 100px;
-    color: black;
+    padding: 10px 5px;
+    width: 60px;
+    color: rgb(255, 255, 255);
 }
