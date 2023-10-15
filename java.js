@@ -728,8 +728,8 @@ function reveal(){
         let victoryPic = document.createElement('img');
         victoryPic.classList.add("victoryPic");
         victoryPic.src = actualAnswer.Picture;
-        resultsSection.appendChild(result);
-        resultsSection.appendChild(victoryPic);
+        let categoriesSection = document.querySelector(".categories");
+        resultsSection.insertBefore(victoryPic, categoriesSection);
         gameOver = true;
         newGame();
         } 

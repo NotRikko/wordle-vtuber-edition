@@ -91,6 +91,7 @@ h1 {
 
 
 .victoryPic {
+    align-self: center;
     width: 250px;
     margin-bottom: 80px;
 }
