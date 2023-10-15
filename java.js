@@ -659,12 +659,15 @@ const vtuberList = [
         Purity: "Seiso",
     },
 
-    
-    
-
 ]
-let randomVtuber = vtuberList[Math.floor(vtuberList.length * Math.random())];
-let actualAnswer = {
+
+let randomVtuber = null;
+let actualAnswer = null;
+
+function getRandomVtuber() {
+    vtuberList.forEach((object => {object.isAppended = false}));
+    randomVtuber = vtuberList[Math.floor(vtuberList.length * Math.random())];
+    actualAnswer = {
     Vtuber: randomVtuber.Vtuber.toLowerCase(),
     Picture: randomVtuber.Picture,
     Wave: randomVtuber.Wave,
@@ -676,11 +679,37 @@ let actualAnswer = {
 
 }
 console.log(actualAnswer.Vtuber);
+}
+
+getRandomVtuber();
+
 
 let resultsSection = document.querySelector("#results");
 let gameContainer = document.querySelector("#gameContainer");
 let result = document.createElement("h1");
 let gameOver = false;
+
+function startGame() {
+    getRandomVtuber();
+    let removeHints = document.querySelectorAll('.hintsSection');
+    removeHints.forEach((hintsSection) => {
+        gameContainer.removeChild(hintsSection);
+    });
+    let removeVictoryPic = document.querySelector('.victoryPic');
+    if (removeVictoryPic) {
+        resultsSection.removeChild(removeVictoryPic);
+    }
+    result.textContent = "";
+    gameOver = false;
+    playButton.textContent = "Enter";
+    playButton.removeEventListener("click", startGame);
+}
+
+function newGame() {
+    playButton.textContent = "Reset";
+    playButton.addEventListener("click", startGame);
+}
+
 function reveal(){
    /* let existingHints = document.querySelectorAll(".hint");
     if (existingHints.length > 0) {
@@ -703,11 +732,15 @@ function reveal(){
         resultsSection.appendChild(result);
         resultsSection.appendChild(victoryPic);
         gameOver = true;
+        newGame();
         } 
     else {  
         const foundVtuber = vtuberList.find(vtuber => vtuber.Vtuber.toLowerCase() === playerAnswer.toLowerCase());
         console.log(foundVtuber);
         if(foundVtuber) {
+            if (foundVtuber.isAppended === true) {
+                return result.textContent = "Already guessed!"
+            }
             let hint1 = document.createElement('div');
             hint1.setAttribute('id','images');
             hint1.classList.add("hint");
@@ -786,6 +819,7 @@ function reveal(){
             hintsSection.appendChild(hint7);
             hintsSection.appendChild(hint4);
             gameContainer.insertBefore(hintsSection, gameContainer.firstChild)
+            foundVtuber.isAppended = true;
             
         }
         result.textContent = "Guess Again!";
@@ -809,3 +843,6 @@ function resetInput(){
 
 let container = document.querySelector("#game-container");
 
+let playButton = document.querySelector("#play");
+playButton.addEventListener ("click", reveal);
+playButton.addEventListener("click",resetInput);
