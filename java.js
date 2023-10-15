@@ -687,7 +687,13 @@ getRandomVtuber();
 let resultsSection = document.querySelector("#results");
 let gameContainer = document.querySelector("#gameContainer");
 let result = document.createElement("h1");
+
+/* 
+Section to set states of game and divs to prevent repeat elements
+*/
 let gameOver = false;
+let isCategories = false;
+let isResults = false;
 
 function startGame() {
     getRandomVtuber();
@@ -711,13 +717,6 @@ function newGame() {
 }
 
 function reveal(){
-   /* let existingHints = document.querySelectorAll(".hint");
-    if (existingHints.length > 0) {
-        for (let i=0; i<existingHints.length;i++){
-        gameContainer.removeChild(existingHints[i]);
-        }
-    }
-    */
    if (gameOver === true) {
     return;
    }
@@ -822,8 +821,39 @@ function reveal(){
             foundVtuber.isAppended = true;
             
         }
+        let categories = document.createElement("div");
+        categories.classList.add("categories");
+        let hintPicture = document.createElement('div');
+        hintPicture.textContent = "Vtuber";
+        hintPicture.setAttribute('id', "hintPicture");
+        let hintCompany = document.createElement('div');
+        hintCompany.textContent = "Company";
+        let hintWave = document.createElement('div');
+        hintWave.textContent = "Wave";
+        let hintGender = document.createElement('div');
+        hintGender.textContent = "Gender";
+        let hintBoobaSize = document.createElement('div');
+        hintBoobaSize.textContent = "Booba";
+        let hintPurity = document.createElement('div');
+        hintPurity.textContent = "Purity";
+        let hintHairColor = document.createElement('div');
+        hintHairColor.textContent = "Hair Color"
+        categories.appendChild(hintPicture);
+        categories.appendChild(hintCompany);
+        categories.appendChild(hintWave);
+        categories.appendChild(hintGender);
+        categories.appendChild(hintBoobaSize);
+        categories.appendChild(hintPurity);
+        categories.appendChild(hintHairColor);
         result.textContent = "Guess Again!";
-        resultsSection.appendChild(result);
+        if (isResults === false) {
+            resultsSection.appendChild(result);
+            isResults = true;
+        }
+        if (isCategories === false) {
+            resultsSection.appendChild(categories);
+            isCategories = true;
+        };
     }
 }
 }
