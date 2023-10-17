@@ -687,6 +687,8 @@ getRandomVtuber();
 let resultsSection = document.querySelector("#results");
 let gameContainer = document.querySelector("#gameContainer");
 let result = document.createElement("h1");
+let hintResultsSection = document.querySelector("#hintResults");
+let categoriesResults = document.querySelector("#hintCategories");
 
 /* 
 Section to set states of game and divs to prevent repeat elements
@@ -699,14 +701,17 @@ function startGame() {
     getRandomVtuber();
     let removeHints = document.querySelectorAll('.hintsSection');
     removeHints.forEach((hintsSection) => {
-        gameContainer.removeChild(hintsSection);
+        hintResultsSection.removeChild(hintsSection);
     });
+    let hintCategoriesRemoval = document.querySelector('.categories');
+    categoriesResults.removeChild(hintCategoriesRemoval);
     let removeVictoryPic = document.querySelector('.victoryPic');
     if (removeVictoryPic) {
         resultsSection.removeChild(removeVictoryPic);
     }
     result.textContent = "";
     gameOver = false;
+    isCategories = false;
     playButton.textContent = "Enter";
     playButton.removeEventListener("click", startGame);
 }
@@ -728,8 +733,7 @@ function reveal(){
         let victoryPic = document.createElement('img');
         victoryPic.classList.add("victoryPic");
         victoryPic.src = actualAnswer.Picture;
-        let categoriesSection = document.querySelector(".categories");
-        resultsSection.insertBefore(victoryPic, categoriesSection);
+        resultsSection.appendChild(victoryPic);
         gameOver = true;
         newGame();
         } 
@@ -808,7 +812,6 @@ function reveal(){
                 hint7.style.backgroundColor = "red";
             }
 
-            let hintResultsSection = document.querySelector("#hintResults");
             let hintsSection = document.createElement('div');
             hintsSection.classList.add("hintsSection");
             hintsSection.appendChild(hint1);
@@ -822,7 +825,6 @@ function reveal(){
             foundVtuber.isAppended = true;
             
         }
-        let categoriesResults = document.querySelector("#hintCategories");
         let categories = document.createElement("div");
         categories.classList.add("categories");
         let hintPicture = document.createElement('div');
