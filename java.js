@@ -808,6 +808,7 @@ function reveal(){
                 hint7.style.backgroundColor = "red";
             }
 
+            let hintResultsSection = document.querySelector("#hintResults");
             let hintsSection = document.createElement('div');
             hintsSection.classList.add("hintsSection");
             hintsSection.appendChild(hint1);
@@ -817,27 +818,35 @@ function reveal(){
             hintsSection.appendChild(hint6);
             hintsSection.appendChild(hint7);
             hintsSection.appendChild(hint4);
-            gameContainer.insertBefore(hintsSection, gameContainer.firstChild)
+            hintResultsSection.insertBefore(hintsSection, hintResultsSection.firstChild);
             foundVtuber.isAppended = true;
             
         }
+        let categoriesResults = document.querySelector("#hintCategories");
         let categories = document.createElement("div");
         categories.classList.add("categories");
         let hintPicture = document.createElement('div');
+        hintPicture.classList.add("hintCategory")
         hintPicture.textContent = "Vtuber";
         hintPicture.setAttribute('id', "hintPicture");
         let hintCompany = document.createElement('div');
+        hintCompany.classList.add("hintCategory");
         hintCompany.textContent = "Company";
         let hintWave = document.createElement('div');
+        hintWave.classList.add("hintCategory");
         hintWave.textContent = "Wave";
         let hintGender = document.createElement('div');
+        hintGender.classList.add("hintCategory");
         hintGender.textContent = "Gender";
         let hintBoobaSize = document.createElement('div');
+        hintBoobaSize.classList.add("hintCategory");
         hintBoobaSize.textContent = "Booba";
         let hintPurity = document.createElement('div');
+        hintPurity.classList.add("hintCategory");
         hintPurity.textContent = "Purity";
         let hintHairColor = document.createElement('div');
-        hintHairColor.textContent = "Hair Color"
+        hintHairColor.classList.add("hintCategory");
+        hintHairColor.textContent = "Hair";
         categories.appendChild(hintPicture);
         categories.appendChild(hintCompany);
         categories.appendChild(hintWave);
@@ -851,7 +860,7 @@ function reveal(){
             isResults = true;
         }
         if (isCategories === false) {
-            resultsSection.appendChild(categories);
+            categoriesResults.appendChild(categories);
             isCategories = true;
         };
     }

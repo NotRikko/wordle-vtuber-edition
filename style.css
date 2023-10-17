@@ -85,10 +85,39 @@ h1 {
     justify-content: space-evenly;
     padding-bottom: 4px;
     border-bottom: 1px solid white;
-    gap: 28px;
+    position: relative;
+    gap: 10px;
 }
 
+#hintCategories {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hintCategory {
+    align-self: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 70px;
+    height: 20px;
+    padding: 10px 5px;
+}
 
+#hintPicture {
+    padding: 0px;
+    width: 65px;
+    margin-right: 5px;
+}
+
+#hintResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
 
 .victoryPic {
     align-self: center;
